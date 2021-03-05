@@ -1,0 +1,3 @@
+This is an implementation of a distributed key-value store based on Amazon DynamoDB. Nodes are implemented as separate processes and communicate via sockets. To implement the distributed key-value store, there is a single central manager that handles routing between an arbitrary number of storage processes.
+
+In this implementation, the swarm maintains strong consistency through a "write many" scheme that writes to all replicas of a given key. However, performance is maintained by having reads query a single node. This makes the system robust against node failure, but does not make it robust against corruption or other Byzantine failure.
